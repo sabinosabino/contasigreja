@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,17 @@ namespace ControleDizimoOferta
 
             try
             {
-                string connectionString = @"Data Source=C:\Projetos\csharp\ControleDizimoOferta\database.db;";
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+
+                string dbPath = Path.Combine(basePath, "database.db");
+
+                if (!File.Exists(dbPath)) {
+                    MessageBox.Show(dbPath + " Não encontrado");
+                    throw new Exception("Caminho não encontrado.");
+                }
+
+                string connectionString = $@"Data Source={dbPath};";
+                //string connectionString = @"Data Source=C:\Projetos\csharp\ControleDizimoOferta\database.db;";
                 _connection = new SQLiteConnection(connectionString);
 
                 _connection.Open();
@@ -58,5 +69,7 @@ namespace ControleDizimoOferta
             dtg.AllowUserToResizeRows = false;
             dtg.AllowUserToResizeColumns = false;
         }
+
+        public static bool logado;
     }
 }
