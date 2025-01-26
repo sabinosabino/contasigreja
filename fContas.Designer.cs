@@ -53,8 +53,8 @@ namespace ControleDizimoOferta
             this.cboAno = new System.Windows.Forms.ComboBox();
             this.cboMes = new System.Windows.Forms.ComboBox();
             this.btnRecarregar = new System.Windows.Forms.Button();
-            this.contasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cboExportar = new System.Windows.Forms.Button();
+            this.contasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             idLabel = new System.Windows.Forms.Label();
             dataLabel = new System.Windows.Forms.Label();
             competenciaLabel = new System.Windows.Forms.Label();
@@ -135,6 +135,11 @@ namespace ControleDizimoOferta
             this.idNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contasBindingSource, "Id", true));
             this.idNumericUpDown.Enabled = false;
             this.idNumericUpDown.Location = new System.Drawing.Point(113, 12);
+            this.idNumericUpDown.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.idNumericUpDown.Name = "idNumericUpDown";
             this.idNumericUpDown.Size = new System.Drawing.Size(95, 20);
             this.idNumericUpDown.TabIndex = 0;
@@ -280,10 +285,6 @@ namespace ControleDizimoOferta
             this.btnRecarregar.UseVisualStyleBackColor = false;
             this.btnRecarregar.Click += new System.EventHandler(this.btnRecarregar_Click);
             // 
-            // contasBindingSource
-            // 
-            this.contasBindingSource.DataSource = typeof(ControleDizimoOferta.Models.Contas);
-            // 
             // cboExportar
             // 
             this.cboExportar.BackColor = System.Drawing.Color.White;
@@ -295,6 +296,10 @@ namespace ControleDizimoOferta
             this.cboExportar.Text = "Exportar";
             this.cboExportar.UseVisualStyleBackColor = false;
             this.cboExportar.Click += new System.EventHandler(this.cboExportar_Click);
+            // 
+            // contasBindingSource
+            // 
+            this.contasBindingSource.DataSource = typeof(ControleDizimoOferta.Models.Contas);
             // 
             // fContas
             // 

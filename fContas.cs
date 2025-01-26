@@ -41,7 +41,7 @@ namespace ControleDizimoOferta
             this.tipoIdComboBox.ValueMember = "Id";
 
             var selecionado = (Tipos)this.tipoIdComboBox.SelectedItem;
-            this.pessoaIdComboBox.DataSource = pessoas.Where(x => x.Tipo == selecionado.Origem).ToList();
+            this.pessoaIdComboBox.DataSource = pessoas.Where(x => x.Tipo == selecionado.Origem).OrderBy(x => x.Nome).ToList();
             this.pessoaIdComboBox.DisplayMember = "Nome";
             this.pessoaIdComboBox.ValueMember = "Id";
 
